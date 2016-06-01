@@ -32,7 +32,7 @@ public class UserMealsUtil {
     }
 
     public static List<UserMealWithExceed> getFilteredMealsWithExceeded
-            (List<UserMeal> mealList, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {  // Works with Time without Date
+            (List<UserMeal> mealList, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
 
         List<UserMealWithExceed> userMealWithExceedList = new ArrayList<>();
 
@@ -55,10 +55,6 @@ public class UserMealsUtil {
         return userMealWithExceedList;
     }
 }
-
-/*
-Сделать реализация через Java 8 Stream API. Заменяйте forEach оператором stream.map(..)
- */
 
 
 
