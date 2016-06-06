@@ -9,10 +9,10 @@
 
 
 <form action="loginServlet" method="post">
-    Username!!!: <label>
+    Username: <label>
     <input type="text" name="user">
 </label>
-    Password!!!: <label>
+    Password: <label>
     <input type="text" name="pwd">
 </label>
     <input type="submit" value="Login">
