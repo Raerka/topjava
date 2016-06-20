@@ -1,169 +1,169 @@
-# Онлайн проекта <a href="https://github.com/JavaWebinar/topjava07">Topjava</a>
+# РћРЅР»Р°Р№РЅ РїСЂРѕРµРєС‚Р° <a href="https://github.com/JavaWebinar/topjava07">Topjava</a>
 
-## Коррекция mealEdit
+## РљРѕСЂСЂРµРєС†РёСЏ mealEdit
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFS21oTW5FTkxzblE">0-correction.patch</a>**
-> в JSP используется параметр запроса `param.action`, он не кладется а аттрибуты.
+> РІ JSP РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїР°СЂР°РјРµС‚СЂ Р·Р°РїСЂРѕСЃР° `param.action`, РѕРЅ РЅРµ РєР»Р°РґРµС‚СЃСЏ Р° Р°С‚С‚СЂРёР±СѓС‚С‹.
 
-## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Разбор домашнего задания HW2
+## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Р Р°Р·Р±РѕСЂ РґРѕРјР°С€РЅРµРіРѕ Р·Р°РґР°РЅРёСЏ HW2
 
 ### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 1. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFdDhnNHFMU2dKQzQ">HW2</a>
-> Изменения в проекте:
-  - В репозиториях по другому инстанциировал компараторы
-  - Пернес обработку пустых дат  в `UserMealRestController.getBetween()`
-  - Зарефакторил `<T extends Comparable<? super T>> TimeUtil.isBetween(T value, T start, T end)`. Дженерики означают, что мы принимаем экземпляры класса, который имплементит компаратор, который умеет сравнивать T или суперклассы от T
+> РР·РјРµРЅРµРЅРёСЏ РІ РїСЂРѕРµРєС‚Рµ:
+  - Р’ СЂРµРїРѕР·РёС‚РѕСЂРёСЏС… РїРѕ РґСЂСѓРіРѕРјСѓ РёРЅСЃС‚Р°РЅС†РёРёСЂРѕРІР°Р» РєРѕРјРїР°СЂР°С‚РѕСЂС‹
+  - РџРµСЂРЅРµСЃ РѕР±СЂР°Р±РѕС‚РєСѓ РїСѓСЃС‚С‹С… РґР°С‚  РІ `UserMealRestController.getBetween()`
+  - Р—Р°СЂРµС„Р°РєС‚РѕСЂРёР» `<T extends Comparable<? super T>> TimeUtil.isBetween(T value, T start, T end)`. Р”Р¶РµРЅРµСЂРёРєРё РѕР·РЅР°С‡Р°СЋС‚, С‡С‚Рѕ РјС‹ РїСЂРёРЅРёРјР°РµРј СЌРєР·РµРјРїР»СЏСЂС‹ РєР»Р°СЃСЃР°, РєРѕС‚РѕСЂС‹Р№ РёРјРїР»РµРјРµРЅС‚РёС‚ РєРѕРјРїР°СЂР°С‚РѕСЂ, РєРѕС‚РѕСЂС‹Р№ СѓРјРµРµС‚ СЃСЂР°РІРЅРёРІР°С‚СЊ T РёР»Рё СЃСѓРїРµСЂРєР»Р°СЃСЃС‹ РѕС‚ T
   
   - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFS195Wm9aNi1uWjQ">1-HW2-repository.patch</a>**
 
-**Внимание: при удалении класса он остается скомпилированный у вас в target (и classpath). В этом случае (или вообще если непонятно почему проект глючит) сделаейт в maven clean.**
+**Р’РЅРёРјР°РЅРёРµ: РїСЂРё СѓРґР°Р»РµРЅРёРё РєР»Р°СЃСЃР° РѕРЅ РѕСЃС‚Р°РµС‚СЃСЏ СЃРєРѕРјРїРёР»РёСЂРѕРІР°РЅРЅС‹Р№ Сѓ РІР°СЃ РІ target (Рё classpath). Р’ СЌС‚РѕРј СЃР»СѓС‡Р°Рµ (РёР»Рё РІРѕРѕР±С‰Рµ РµСЃР»Рё РЅРµРїРѕРЅСЏС‚РЅРѕ РїРѕС‡РµРјСѓ РїСЂРѕРµРєС‚ РіР»СЋС‡РёС‚) СЃРґРµР»Р°РµР№С‚ РІ maven clean.**
 
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFQXY5R1BURU04MW8">2-HW2-meal-layers.patch</a>**
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFT1gtZVZWbW1wSU0">3-HW2-optional-MealServlet.patch</a>**
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFN0VPc1Zzbi0zemc">4-HW2-optional-filter.patch</a>**
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFWFdPRmhmemh6dlk">5-HW2-optional-select-user.patch</a>**
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 2. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFMGRVM0QyblJtNGc">Вопросы по API и слоям приложения</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 2. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFMGRVM0QyblJtNGc">Р’РѕРїСЂРѕСЃС‹ РїРѕ API Рё СЃР»РѕСЏРј РїСЂРёР»РѕР¶РµРЅРёСЏ</a>
 - <a href="http://stackoverflow.com/questions/21554977/should-services-always-return-dtos-or-can-they-also-return-domain-models">Should services always return DTOs, or can they also return domain models?</a>
 - <a href="http://stackoverflow.com/questions/31644131/spring-dto-dao-resource-entity-mapping-goes-in-which-application-layer-cont/35798539#35798539">Mapping Entity->DTO goes in which application layer: Controller or Service?</a>
 
-## Занятие 3:
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 3. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFOU8wWlpPVE05STA">Коротко о жизненном цикле Spring контекста.</a>
+## Р—Р°РЅСЏС‚РёРµ 3:
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 3. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFOU8wWlpPVE05STA">РљРѕСЂРѕС‚РєРѕ Рѕ Р¶РёР·РЅРµРЅРЅРѕРј С†РёРєР»Рµ Spring РєРѕРЅС‚РµРєСЃС‚Р°.</a>
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFakQ2R3A1amR4RzQ">6-bean-life-cycle.patch</a>**
--  <a href="http://habrahabr.ru/post/222579/">Spring изнутри. Этапы инициализации контекста.</a>
--  Ресурсы:
-   -  <a href="http://vk.com/javawebinar?z=video-58538268_169373158%2Fvideos-58538268">Евгений Борисов. Spring, часть 1</a>
-   -  <a href="http://vk.com/javawebinar?z=video-58538268_169373162%2Fvideos-58538268">Евгений Борисов. Spring, часть 2</a>
-   -  <a href="http://www.slideshare.net/taemonz/spring-framework-core-23721778">Презентация Spring framework core</a>
+-  <a href="http://habrahabr.ru/post/222579/">Spring РёР·РЅСѓС‚СЂРё. Р­С‚Р°РїС‹ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РєРѕРЅС‚РµРєСЃС‚Р°.</a>
+-  Р РµСЃСѓСЂСЃС‹:
+   -  <a href="http://vk.com/javawebinar?z=video-58538268_169373158%2Fvideos-58538268">Р•РІРіРµРЅРёР№ Р‘РѕСЂРёСЃРѕРІ. Spring, С‡Р°СЃС‚СЊ 1</a>
+   -  <a href="http://vk.com/javawebinar?z=video-58538268_169373162%2Fvideos-58538268">Р•РІРіРµРЅРёР№ Р‘РѕСЂРёСЃРѕРІ. Spring, С‡Р°СЃС‚СЊ 2</a>
+   -  <a href="http://www.slideshare.net/taemonz/spring-framework-core-23721778">РџСЂРµР·РµРЅС‚Р°С†РёСЏ Spring framework core</a>
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png)  4. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFODlkU1B0QnNnSGs">Тестирование через JUnit.</a>
-> **ВНИМАНИЕ: перед накаткой патча создайте каталог test (из корня проекта путь `\src\test`), иначе часть файлов попадет в `src\main`.**
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png)  4. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFODlkU1B0QnNnSGs">РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ С‡РµСЂРµР· JUnit.</a>
+> **Р’РќРРњРђРќРР•: РїРµСЂРµРґ РЅР°РєР°С‚РєРѕР№ РїР°С‚С‡Р° СЃРѕР·РґР°Р№С‚Рµ РєР°С‚Р°Р»РѕРі test (РёР· РєРѕСЂРЅСЏ РїСЂРѕРµРєС‚Р° РїСѓС‚СЊ `\src\test`), РёРЅР°С‡Рµ С‡Р°СЃС‚СЊ С„Р°Р№Р»РѕРІ РїРѕРїР°РґРµС‚ РІ `src\main`.**
 
 -  **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFdk5sUGF2aDJ1aVk">7-add-junit.patch</a>**
--  Перенос mock реализации в test.
+-  РџРµСЂРµРЅРѕСЃ mock СЂРµР°Р»РёР·Р°С†РёРё РІ test.
 -  <a href="http://junit.org/">JUnit 4</a>
--  <a href="http://habrahabr.ru/post/120101/">Тестирование в Java. JUnit</a>
+-  <a href="http://habrahabr.ru/post/120101/">РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ РІ Java. JUnit</a>
 
 ### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 5. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFai1veG9qaFZlZ2s">Spring Test</a>
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFTmZOQ0ZMdDFIdXc">8-add-spring-test.patch</a>**
--  Интеграция Spring и JUnit.
+-  РРЅС‚РµРіСЂР°С†РёСЏ Spring Рё JUnit.
 -  <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#testing">Spring Testing</a>
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 6. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFVlNYczhnSU9JdXc">Базы данных. Обзор NoSQL и Java persistence solution без ORM.</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 6. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFVlNYczhnSU9JdXc">Р‘Р°Р·С‹ РґР°РЅРЅС‹С…. РћР±Р·РѕСЂ NoSQL Рё Java persistence solution Р±РµР· ORM.</a>
 -  <a href="https://ru.wikipedia.org/wiki/PostgreSQL">PostgreSQL</a>.
--  <a href="http://java-course.ru/begin/postgresql/">Установка PostgreSQL</a>.
--  <a href="http://alexander.holbreich.org/2013/03/nosql-or-rdbms/">NoSQL or RDBMS.</a><a href="http://habrahabr.ru/post/77909/">Обзор NoSQL систем</a>. <a href="http://blog.nahurst.com/visual-guide-to-nosql-systems">CAP</a>
+-  <a href="http://java-course.ru/begin/postgresql/">РЈСЃС‚Р°РЅРѕРІРєР° PostgreSQL</a>.
+-  <a href="http://alexander.holbreich.org/2013/03/nosql-or-rdbms/">NoSQL or RDBMS.</a><a href="http://habrahabr.ru/post/77909/">РћР±Р·РѕСЂ NoSQL СЃРёСЃС‚РµРј</a>. <a href="http://blog.nahurst.com/visual-guide-to-nosql-systems">CAP</a>
 -  <a href="http://ru.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a>
--  Обзор Java persistence solution без ORM: <a href="http://commons.apache.org/proper/commons-dbutils/">commons-dbutils</a>,
+-  РћР±Р·РѕСЂ Java persistence solution Р±РµР· ORM: <a href="http://commons.apache.org/proper/commons-dbutils/">commons-dbutils</a>,
             <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/jdbc.html">Spring JdbcTemplate</a>,
             <a href="http://en.wikipedia.org/wiki/MyBatis">MyBatis</a>, <a href="http://www.jdbi.org/">JDBI</a>, <a href="http://www.jooq.org/">jOOQ</a>
-- Основы:
-  - <a href="https://ru.wikipedia.org/wiki/Реляционная_СУБД">Реляционная СУБД</a>
-  - <a href="http://habrahabr.ru/post/103021/">Реляционные базы</a>
-  - <a href="https://www.youtube.com/playlist?list=PLIU76b8Cjem5qdMQLXiIwGLTLyUHkTqi2">Уроки по JDBC</a>
+- РћСЃРЅРѕРІС‹:
+  - <a href="https://ru.wikipedia.org/wiki/Р РµР»СЏС†РёРѕРЅРЅР°СЏ_РЎРЈР‘Р”">Р РµР»СЏС†РёРѕРЅРЅР°СЏ РЎРЈР‘Р”</a>
+  - <a href="http://habrahabr.ru/post/103021/">Р РµР»СЏС†РёРѕРЅРЅС‹Рµ Р±Р°Р·С‹</a>
+  - <a href="https://www.youtube.com/playlist?list=PLIU76b8Cjem5qdMQLXiIwGLTLyUHkTqi2">РЈСЂРѕРєРё РїРѕ JDBC</a>
   - <a href="http://postgresguide.com/">Postgres Guide</a>
   - <a href="http://www.postgresqltutorial.com">PostgreSQL Tutorial</a>
   - <a href="http://campus.codeschool.com/courses/try-sql">Try SQL</a>
-  - <a href="http://java-course.ru/begin/database01/">Базы данных на Java</a>
-  - <a href="http://java-course.ru/begin/database02/">Возможности JDBC — второй этап</a>
+  - <a href="http://java-course.ru/begin/database01/">Р‘Р°Р·С‹ РґР°РЅРЅС‹С… РЅР° Java</a>
+  - <a href="http://java-course.ru/begin/database02/">Р’РѕР·РјРѕР¶РЅРѕСЃС‚Рё JDBC вЂ” РІС‚РѕСЂРѕР№ СЌС‚Р°Рї</a>
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 7. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFQWtHYU1qTDlMWVE">Настройка Database в IDEA.</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 7. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFQWtHYU1qTDlMWVE">РќР°СЃС‚СЂРѕР№РєР° Database РІ IDEA.</a>
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFRWlOeWVDMFhUeTQ">9-add-postgresql.patch</a>**
--  <a href="http://habrahabr.ru/company/JetBrains/blog/204064/">Настройка Database в IDEA</a> и запуск SQL.
+-  <a href="http://habrahabr.ru/company/JetBrains/blog/204064/">РќР°СЃС‚СЂРѕР№РєР° Database РІ IDEA</a> Рё Р·Р°РїСѓСЃРє SQL.
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 8. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFMGNWUXhaVzdlU0k">Скрипты инициализации базы. Spring Jdbc Template.</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 8. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFMGNWUXhaVzdlU0k">РЎРєСЂРёРїС‚С‹ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё Р±Р°Р·С‹. Spring Jdbc Template.</a>
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFdTRzUkx3b0hhd2M">10-populate-and-init-db.patch</a>**
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFVjdOdXJJY2VhQ00">11-impl-JdbcUserRepository.patch</a>**
--  Подключение <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/jdbc.html">Spring Jdbc</a>.
--  Конфигурирование DataSource. <a href="http://www.mkyong.com/spring/spring-propertyplaceholderconfigurer-example/">Property Placeholder</a>
+-  РџРѕРґРєР»СЋС‡РµРЅРёРµ <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/jdbc.html">Spring Jdbc</a>.
+-  РљРѕРЅС„РёРіСѓСЂРёСЂРѕРІР°РЅРёРµ DataSource. <a href="http://www.mkyong.com/spring/spring-propertyplaceholderconfigurer-example/">Property Placeholder</a>
 
->  **Проверьте, что в <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFYThYOFNHbnNzd0E">контекст Spring проекта включены оба файла конфигурации</a>**.
+>  **РџСЂРѕРІРµСЂСЊС‚Рµ, С‡С‚Рѕ РІ <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFYThYOFNHbnNzd0E">РєРѕРЅС‚РµРєСЃС‚ Spring РїСЂРѕРµРєС‚Р° РІРєР»СЋС‡РµРЅС‹ РѕР±Р° С„Р°Р№Р»Р° РєРѕРЅС„РёРіСѓСЂР°С†РёРё</a>**.
 
--  Имплементация UserRepository через Spring Jdbc Template.
+-  РРјРїР»РµРјРµРЅС‚Р°С†РёСЏ UserRepository С‡РµСЂРµР· Spring Jdbc Template.
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 9. <a href="https://drive.google.com/open?id=0B4dIHS3wRAhhQUJMMFU0VnRrUUE">Подготовка тестовых данных и тестирование UserService.</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 9. <a href="https://drive.google.com/open?id=0B4dIHS3wRAhhQUJMMFU0VnRrUUE">РџРѕРґРіРѕС‚РѕРІРєР° С‚РµСЃС‚РѕРІС‹С… РґР°РЅРЅС‹С… Рё С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ UserService.</a>
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFajFEeGdNZUVoeVk">12-test-UserService.patch</a>**
--  Подготовка тестовых данных в UserServiceTest. Добавление TestUser и ModelMatcher
--  Тестирование UserService.
+-  РџРѕРґРіРѕС‚РѕРІРєР° С‚РµСЃС‚РѕРІС‹С… РґР°РЅРЅС‹С… РІ UserServiceTest. Р”РѕР±Р°РІР»РµРЅРёРµ TestUser Рё ModelMatcher
+-  РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ UserService.
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 10. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFVmZaSm9UMktXUnc">Логирование тестов.</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 10. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFVmZaSm9UMktXUnc">Р›РѕРіРёСЂРѕРІР°РЅРёРµ С‚РµСЃС‚РѕРІ.</a>
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFRXFuV0g5emlzYnM">13-test-logging.patch</a>**
 - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFUnNIZHRsdXVlSUE">14-fix-servlet.patch</a>**
  
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 11. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFNDlOQVpOWF82OTA">Ответы на Ваши вопросы</a>
--  Что такое REST?
--  Зачем нужна сортировка еды?
--  Можно ли обойтись без `MapSqlParameterSource`?
--  Как происходит работа с DB в тестах?
--  Как реализовывать RowMapper?
--  Мои комментарии: решения проблем разработчиком.
--  Нужен ли разработчику JavaScript?
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 11. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFNDlOQVpOWF82OTA">РћС‚РІРµС‚С‹ РЅР° Р’Р°С€Рё РІРѕРїСЂРѕСЃС‹</a>
+-  Р§С‚Рѕ С‚Р°РєРѕРµ REST?
+-  Р—Р°С‡РµРј РЅСѓР¶РЅР° СЃРѕСЂС‚РёСЂРѕРІРєР° РµРґС‹?
+-  РњРѕР¶РЅРѕ Р»Рё РѕР±РѕР№С‚РёСЃСЊ Р±РµР· `MapSqlParameterSource`?
+-  РљР°Рє РїСЂРѕРёСЃС…РѕРґРёС‚ СЂР°Р±РѕС‚Р° СЃ DB РІ С‚РµСЃС‚Р°С…?
+-  РљР°Рє СЂРµР°Р»РёР·РѕРІС‹РІР°С‚СЊ RowMapper?
+-  РњРѕРё РєРѕРјРјРµРЅС‚Р°СЂРёРё: СЂРµС€РµРЅРёСЏ РїСЂРѕР±Р»РµРј СЂР°Р·СЂР°Р±РѕС‚С‡РёРєРѕРј.
+-  РќСѓР¶РµРЅ Р»Рё СЂР°Р·СЂР°Р±РѕС‚С‡РёРєСѓ JavaScript?
 
-## ![question](https://cloud.githubusercontent.com/assets/13649199/13672858/9cd58692-e6e7-11e5-905d-c295d2a456f1.png) Ваши вопросы
-> Какая разница между @BeforeClass and @Before? 
+## ![question](https://cloud.githubusercontent.com/assets/13649199/13672858/9cd58692-e6e7-11e5-905d-c295d2a456f1.png) Р’Р°С€Рё РІРѕРїСЂРѕСЃС‹
+> РљР°РєР°СЏ СЂР°Р·РЅРёС†Р° РјРµР¶РґСѓ @BeforeClass and @Before? 
 
-`@BeforeClass` выполняется один раз после загрузки класса (поэтому метод может быть только статический), `@Before` перед каждым тестом. Не ленитесь сходить в исходники по Ctrl+Enter и почитать javadoc.
+`@BeforeClass` РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РѕРґРёРЅ СЂР°Р· РїРѕСЃР»Рµ Р·Р°РіСЂСѓР·РєРё РєР»Р°СЃСЃР° (РїРѕСЌС‚РѕРјСѓ РјРµС‚РѕРґ РјРѕР¶РµС‚ Р±С‹С‚СЊ С‚РѕР»СЊРєРѕ СЃС‚Р°С‚РёС‡РµСЃРєРёР№), `@Before` РїРµСЂРµРґ РєР°Р¶РґС‹Рј С‚РµСЃС‚РѕРј. РќРµ Р»РµРЅРёС‚РµСЃСЊ СЃС…РѕРґРёС‚СЊ РІ РёСЃС…РѕРґРЅРёРєРё РїРѕ Ctrl+Enter Рё РїРѕС‡РёС‚Р°С‚СЊ javadoc.
 
-Дополнение: для чистоты экземпляр тестового класса пересоздается перед каждым тестом: http://stackoverflow.com/questions/6094081/junit-using-constructor-instead-of-before
+Р”РѕРїРѕР»РЅРµРЅРёРµ: РґР»СЏ С‡РёСЃС‚РѕС‚С‹ СЌРєР·РµРјРїР»СЏСЂ С‚РµСЃС‚РѕРІРѕРіРѕ РєР»Р°СЃСЃР° РїРµСЂРµСЃРѕР·РґР°РµС‚СЃСЏ РїРµСЂРµРґ РєР°Р¶РґС‹Рј С‚РµСЃС‚РѕРј: http://stackoverflow.com/questions/6094081/junit-using-constructor-instead-of-before
 
-> Тесты в классе в каком-то определенном порядке выполняются ("сверху вниз" например)?
+> РўРµСЃС‚С‹ РІ РєР»Р°СЃСЃРµ РІ РєР°РєРѕРј-С‚Рѕ РѕРїСЂРµРґРµР»РµРЅРЅРѕРј РїРѕСЂСЏРґРєРµ РІС‹РїРѕР»РЅСЏСЋС‚СЃСЏ ("СЃРІРµСЂС…Сѓ РІРЅРёР·" РЅР°РїСЂРёРјРµСЂ)?
 
-Порядок по умолчанию неопределен, каждый тест должен быть автономен и не зависеть от других. См. также http://stackoverflow.com/questions/3693626/how-to-run-test-methods-in-specific-order-in-junit4 
+РџРѕСЂСЏРґРѕРє РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РЅРµРѕРїСЂРµРґРµР»РµРЅ, РєР°Р¶РґС‹Р№ С‚РµСЃС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ Р°РІС‚РѕРЅРѕРјРµРЅ Рё РЅРµ Р·Р°РІРёСЃРµС‚СЊ РѕС‚ РґСЂСѓРіРёС…. РЎРј. С‚Р°РєР¶Рµ http://stackoverflow.com/questions/3693626/how-to-run-test-methods-in-specific-order-in-junit4 
 
-> Объязательно ли разворачивать postgreSQL?
+> РћР±СЉСЏР·Р°С‚РµР»СЊРЅРѕ Р»Рё СЂР°Р·РІРѕСЂР°С‡РёРІР°С‚СЊ postgreSQL?
 
-Желательно: хорошая и надежная DB:) Если совсем не хочется - можно работать со своей любимой RDBMS (поправить `initDB.sql`) или работать c heroku (креденшелы к нему есть в `postgres.properties`). На следующем уроке добавим HSQLDB, она не тербует установки.
+Р–РµР»Р°С‚РµР»СЊРЅРѕ: С…РѕСЂРѕС€Р°СЏ Рё РЅР°РґРµР¶РЅР°СЏ DB:) Р•СЃР»Рё СЃРѕРІСЃРµРј РЅРµ С…РѕС‡РµС‚СЃСЏ - РјРѕР¶РЅРѕ СЂР°Р±РѕС‚Р°С‚СЊ СЃРѕ СЃРІРѕРµР№ Р»СЋР±РёРјРѕР№ RDBMS (РїРѕРїСЂР°РІРёС‚СЊ `initDB.sql`) РёР»Рё СЂР°Р±РѕС‚Р°С‚СЊ c heroku (РєСЂРµРґРµРЅС€РµР»С‹ Рє РЅРµРјСѓ РµСЃС‚СЊ РІ `postgres.properties`). РќР° СЃР»РµРґСѓСЋС‰РµРј СѓСЂРѕРєРµ РґРѕР±Р°РІРёРј HSQLDB, РѕРЅР° РЅРµ С‚РµСЂР±СѓРµС‚ СѓСЃС‚Р°РЅРѕРІРєРё.
 
-> Зачем начали индексацию с 100000?
+> Р—Р°С‡РµРј РЅР°С‡Р°Р»Рё РёРЅРґРµРєСЃР°С†РёСЋ СЃ 100000?
 
-Тут уже нет "как принято". Так удобно вставлять в базу (если будет потребность)  записи не мешая счетчику.
+РўСѓС‚ СѓР¶Рµ РЅРµС‚ "РєР°Рє РїСЂРёРЅСЏС‚Рѕ". РўР°Рє СѓРґРѕР±РЅРѕ РІСЃС‚Р°РІР»СЏС‚СЊ РІ Р±Р°Р·Сѓ (РµСЃР»Рё Р±СѓРґРµС‚ РїРѕС‚СЂРµР±РЅРѕСЃС‚СЊ)  Р·Р°РїРёСЃРё РЅРµ РјРµС€Р°СЏ СЃС‡РµС‚С‡РёРєСѓ.
 
-> Разве не должно быть у каждой роли примари кей id и форин кей user_id ?
+> Р Р°Р·РІРµ РЅРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ Сѓ РєР°Р¶РґРѕР№ СЂРѕР»Рё РїСЂРёРјР°СЂРё РєРµР№ id Рё С„РѕСЂРёРЅ РєРµР№ user_id ?
 
-Отношение user <-> roles многие ко многим, делается это через таблицу-связку USER_ROLES. Но отдельной таблицы ROLES у нас нет,  мы храним значение роли прямо в таблице-связке USER_ROLES. "Примари кей" тут не нужны. Есть еще варианты использовать тип enum у Postgres или хранить там `INTEGER` как `Roles.ordinal()`. При этом нельзя будет менять порядок в enum Role и добавлять новые роли можно будет только в конец: http://stackoverflow.com/questions/6789342/jpa-enum-ordinal-vs-string
+РћС‚РЅРѕС€РµРЅРёРµ user <-> roles РјРЅРѕРіРёРµ РєРѕ РјРЅРѕРіРёРј, РґРµР»Р°РµС‚СЃСЏ СЌС‚Рѕ С‡РµСЂРµР· С‚Р°Р±Р»РёС†Сѓ-СЃРІСЏР·РєСѓ USER_ROLES. РќРѕ РѕС‚РґРµР»СЊРЅРѕР№ С‚Р°Р±Р»РёС†С‹ ROLES Сѓ РЅР°СЃ РЅРµС‚,  РјС‹ С…СЂР°РЅРёРј Р·РЅР°С‡РµРЅРёРµ СЂРѕР»Рё РїСЂСЏРјРѕ РІ С‚Р°Р±Р»РёС†Рµ-СЃРІСЏР·РєРµ USER_ROLES. "РџСЂРёРјР°СЂРё РєРµР№" С‚СѓС‚ РЅРµ РЅСѓР¶РЅС‹. Р•СЃС‚СЊ РµС‰Рµ РІР°СЂРёР°РЅС‚С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РёРї enum Сѓ Postgres РёР»Рё С…СЂР°РЅРёС‚СЊ С‚Р°Рј `INTEGER` РєР°Рє `Roles.ordinal()`. РџСЂРё СЌС‚РѕРј РЅРµР»СЊР·СЏ Р±СѓРґРµС‚ РјРµРЅСЏС‚СЊ РїРѕСЂСЏРґРѕРє РІ enum Role Рё РґРѕР±Р°РІР»СЏС‚СЊ РЅРѕРІС‹Рµ СЂРѕР»Рё РјРѕР¶РЅРѕ Р±СѓРґРµС‚ С‚РѕР»СЊРєРѕ РІ РєРѕРЅРµС†: http://stackoverflow.com/questions/6789342/jpa-enum-ordinal-vs-string
 
-> Из 5-го видео - "Логика в базе - большое зло". Можно чуть поподробней об этом?
+> РР· 5-РіРѕ РІРёРґРµРѕ - "Р›РѕРіРёРєР° РІ Р±Р°Р·Рµ - Р±РѕР»СЊС€РѕРµ Р·Р»Рѕ". РњРѕР¶РЅРѕ С‡СѓС‚СЊ РїРѕРїРѕРґСЂРѕР±РЅРµР№ РѕР± СЌС‚РѕРј?
 
-- Есть успешные проекты с логикой в базе. Те все относительно.
-- Логика в базе - это процедуры и триггеры. Нет никакого ООП, переиспользовать код достаточно сложно, никагого рефакторинга, поиска по коду и других плюшек IDE. Нельзя делать всякие вещи типа кэширования, хранения в сесии - это все для логики на стороне java. Например json можно напрямую отдать в процедуру и там парсить и вставлять в таблицы или наоборот - собирать из таблиц и возвращать.
-А затем потребуется некоторая логика на стороне приложения и все равно придется этот json дополнительно разпарсивать в java.
-Я на таком проекте делал специальную миграцию, чтобы процедуры мигрировать не как sql скрипты, а каждую процедуру хранить как класс с историей изменений. Если логика: триггеры и простые процедуры записи-чтения, которые не требуют переиспользования кода или
-проект небольшой это допустимо, иначе проект становится очень трудно поддерживать.
+- Р•СЃС‚СЊ СѓСЃРїРµС€РЅС‹Рµ РїСЂРѕРµРєС‚С‹ СЃ Р»РѕРіРёРєРѕР№ РІ Р±Р°Р·Рµ. РўРµ РІСЃРµ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ.
+- Р›РѕРіРёРєР° РІ Р±Р°Р·Рµ - СЌС‚Рѕ РїСЂРѕС†РµРґСѓСЂС‹ Рё С‚СЂРёРіРіРµСЂС‹. РќРµС‚ РЅРёРєР°РєРѕРіРѕ РћРћРџ, РїРµСЂРµРёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєРѕРґ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃР»РѕР¶РЅРѕ, РЅРёРєР°РіРѕРіРѕ СЂРµС„Р°РєС‚РѕСЂРёРЅРіР°, РїРѕРёСЃРєР° РїРѕ РєРѕРґСѓ Рё РґСЂСѓРіРёС… РїР»СЋС€РµРє IDE. РќРµР»СЊР·СЏ РґРµР»Р°С‚СЊ РІСЃСЏРєРёРµ РІРµС‰Рё С‚РёРїР° РєСЌС€РёСЂРѕРІР°РЅРёСЏ, С…СЂР°РЅРµРЅРёСЏ РІ СЃРµСЃРёРё - СЌС‚Рѕ РІСЃРµ РґР»СЏ Р»РѕРіРёРєРё РЅР° СЃС‚РѕСЂРѕРЅРµ java. РќР°РїСЂРёРјРµСЂ json РјРѕР¶РЅРѕ РЅР°РїСЂСЏРјСѓСЋ РѕС‚РґР°С‚СЊ РІ РїСЂРѕС†РµРґСѓСЂСѓ Рё С‚Р°Рј РїР°СЂСЃРёС‚СЊ Рё РІСЃС‚Р°РІР»СЏС‚СЊ РІ С‚Р°Р±Р»РёС†С‹ РёР»Рё РЅР°РѕР±РѕСЂРѕС‚ - СЃРѕР±РёСЂР°С‚СЊ РёР· С‚Р°Р±Р»РёС† Рё РІРѕР·РІСЂР°С‰Р°С‚СЊ.
+Рђ Р·Р°С‚РµРј РїРѕС‚СЂРµР±СѓРµС‚СЃСЏ РЅРµРєРѕС‚РѕСЂР°СЏ Р»РѕРіРёРєР° РЅР° СЃС‚РѕСЂРѕРЅРµ РїСЂРёР»РѕР¶РµРЅРёСЏ Рё РІСЃРµ СЂР°РІРЅРѕ РїСЂРёРґРµС‚СЃСЏ СЌС‚РѕС‚ json РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ СЂР°Р·РїР°СЂСЃРёРІР°С‚СЊ РІ java.
+РЇ РЅР° С‚Р°РєРѕРј РїСЂРѕРµРєС‚Рµ РґРµР»Р°Р» СЃРїРµС†РёР°Р»СЊРЅСѓСЋ РјРёРіСЂР°С†РёСЋ, С‡С‚РѕР±С‹ РїСЂРѕС†РµРґСѓСЂС‹ РјРёРіСЂРёСЂРѕРІР°С‚СЊ РЅРµ РєР°Рє sql СЃРєСЂРёРїС‚С‹, Р° РєР°Р¶РґСѓСЋ РїСЂРѕС†РµРґСѓСЂСѓ С…СЂР°РЅРёС‚СЊ РєР°Рє РєР»Р°СЃСЃ СЃ РёСЃС‚РѕСЂРёРµР№ РёР·РјРµРЅРµРЅРёР№. Р•СЃР»Рё Р»РѕРіРёРєР°: С‚СЂРёРіРіРµСЂС‹ Рё РїСЂРѕСЃС‚С‹Рµ РїСЂРѕС†РµРґСѓСЂС‹ Р·Р°РїРёСЃРё-С‡С‚РµРЅРёСЏ, РєРѕС‚РѕСЂС‹Рµ РЅРµ С‚СЂРµР±СѓСЋС‚ РїРµСЂРµРёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РєРѕРґР° РёР»Рё
+РїСЂРѕРµРєС‚ РЅРµР±РѕР»СЊС€РѕР№ СЌС‚Рѕ РґРѕРїСѓСЃС‚РёРјРѕ, РёРЅР°С‡Рµ РїСЂРѕРµРєС‚ СЃС‚Р°РЅРѕРІРёС‚СЃСЏ РѕС‡РµРЅСЊ С‚СЂСѓРґРЅРѕ РїРѕРґРґРµСЂР¶РёРІР°С‚СЊ.
 
-> У JUnit есть ассерты и у спринга тоже. Можно ли обойтись без JUnit?
+> РЈ JUnit РµСЃС‚СЊ Р°СЃСЃРµСЂС‚С‹ Рё Сѓ СЃРїСЂРёРЅРіР° С‚РѕР¶Рµ. РњРѕР¶РЅРѕ Р»Рё РѕР±РѕР№С‚РёСЃСЊ Р±РµР· JUnit?
 
-Предусловия и JUnit-тесты совершенно разные вещи. Один другого не заменит.
+РџСЂРµРґСѓСЃР»РѕРІРёСЏ Рё JUnit-С‚РµСЃС‚С‹ СЃРѕРІРµСЂС€РµРЅРЅРѕ СЂР°Р·РЅС‹Рµ РІРµС‰Рё. РћРґРёРЅ РґСЂСѓРіРѕРіРѕ РЅРµ Р·Р°РјРµРЅРёС‚.
 
-> Я так понял VARCHAR быстрее, чем TEXT, когда мы работаем с небольшими записями. Наши записи будут небольшими (255). Почему вы приняли решение перейти на TEXT?
+> РЇ С‚Р°Рє РїРѕРЅСЏР» VARCHAR Р±С‹СЃС‚СЂРµРµ, С‡РµРј TEXT, РєРѕРіРґР° РјС‹ СЂР°Р±РѕС‚Р°РµРј СЃ РЅРµР±РѕР»СЊС€РёРјРё Р·Р°РїРёСЃСЏРјРё. РќР°С€Рё Р·Р°РїРёСЃРё Р±СѓРґСѓС‚ РЅРµР±РѕР»СЊС€РёРјРё (255). РџРѕС‡РµРјСѓ РІС‹ РїСЂРёРЅСЏР»Рё СЂРµС€РµРЅРёРµ РїРµСЂРµР№С‚Рё РЅР° TEXT?
 
-В отличие от MySql в Postgres  VARCHAR и TEXT - тоже самое: http://stackoverflow.com/questions/4848964/postgresql-difference-between-text-and-varchar-character-varying
+Р’ РѕС‚Р»РёС‡РёРµ РѕС‚ MySql РІ Postgres  VARCHAR Рё TEXT - С‚РѕР¶Рµ СЃР°РјРѕРµ: http://stackoverflow.com/questions/4848964/postgresql-difference-between-text-and-varchar-character-varying
 
-> Зачем при создании таблицы мы создаем `CREATE UNIQUE INDEX` и `CREATE INDEX`. При каких запросах он будет использоваться?
+> Р—Р°С‡РµРј РїСЂРё СЃРѕР·РґР°РЅРёРё С‚Р°Р±Р»РёС†С‹ РјС‹ СЃРѕР·РґР°РµРј `CREATE UNIQUE INDEX` Рё `CREATE INDEX`. РџСЂРё РєР°РєРёС… Р·Р°РїСЂРѕСЃР°С… РѕРЅ Р±СѓРґРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ?
 
-UNIQUE индекс нужен для обеcпечения уникальности, DB не даст сделать одинаковый индекс. Индексы используется для скорости выполнения запросов. Обычно они задействуются, когда в запросе есть условия, на которые сделан индекс. Узнать по конкретному запросу можно  запросив план запроса: см. <a href="https://habrahabr.ru/post/203320">Оптимизация запросов. Основы EXPLAIN в PostgreSQL</a>
+UNIQUE РёРЅРґРµРєСЃ РЅСѓР¶РµРЅ РґР»СЏ РѕР±РµcРїРµС‡РµРЅРёСЏ СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚Рё, DB РЅРµ РґР°СЃС‚ СЃРґРµР»Р°С‚СЊ РѕРґРёРЅР°РєРѕРІС‹Р№ РёРЅРґРµРєСЃ. РРЅРґРµРєСЃС‹ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ СЃРєРѕСЂРѕСЃС‚Рё РІС‹РїРѕР»РЅРµРЅРёСЏ Р·Р°РїСЂРѕСЃРѕРІ. РћР±С‹С‡РЅРѕ РѕРЅРё Р·Р°РґРµР№СЃС‚РІСѓСЋС‚СЃСЏ, РєРѕРіРґР° РІ Р·Р°РїСЂРѕСЃРµ РµСЃС‚СЊ СѓСЃР»РѕРІРёСЏ, РЅР° РєРѕС‚РѕСЂС‹Рµ СЃРґРµР»Р°РЅ РёРЅРґРµРєСЃ. РЈР·РЅР°С‚СЊ РїРѕ РєРѕРЅРєСЂРµС‚РЅРѕРјСѓ Р·Р°РїСЂРѕСЃСѓ РјРѕР¶РЅРѕ  Р·Р°РїСЂРѕСЃРёРІ РїР»Р°РЅ Р·Р°РїСЂРѕСЃР°: СЃРј. <a href="https://habrahabr.ru/post/203320">РћРїС‚РёРјРёР·Р°С†РёСЏ Р·Р°РїСЂРѕСЃРѕРІ. РћСЃРЅРѕРІС‹ EXPLAIN РІ PostgreSQL</a>
 
-> А это нормально, что у нас в базе у meals есть userId, а в классе - нет?
+> Рђ СЌС‚Рѕ РЅРѕСЂРјР°Р»СЊРЅРѕ, С‡С‚Рѕ Сѓ РЅР°СЃ РІ Р±Р°Р·Рµ Сѓ meals РµСЃС‚СЊ userId, Р° РІ РєР»Р°СЃСЃРµ - РЅРµС‚?
 
-Что значит - "норамльно"?  приложение работает. Ненормально, когда в приложении есть "лишний" код, который не используется. Для ORM он нам понадобится- мы ссылку на User добавим.
+Р§С‚Рѕ Р·РЅР°С‡РёС‚ - "РЅРѕСЂР°РјР»СЊРЅРѕ"?  РїСЂРёР»РѕР¶РµРЅРёРµ СЂР°Р±РѕС‚Р°РµС‚. РќРµРЅРѕСЂРјР°Р»СЊРЅРѕ, РєРѕРіРґР° РІ РїСЂРёР»РѕР¶РµРЅРёРё РµСЃС‚СЊ "Р»РёС€РЅРёР№" РєРѕРґ, РєРѕС‚РѕСЂС‹Р№ РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ. Р”Р»СЏ ORM РѕРЅ РЅР°Рј РїРѕРЅР°РґРѕР±РёС‚СЃСЏ- РјС‹ СЃСЃС‹Р»РєСѓ РЅР° User РґРѕР±Р°РІРёРј.
 
-> Почему мы использует 1 БД sequence на разные сущности?
+> РџРѕС‡РµРјСѓ РјС‹ РёСЃРїРѕР»СЊР·СѓРµС‚ 1 Р‘Р” sequence РЅР° СЂР°Р·РЅС‹Рµ СЃСѓС‰РЅРѕСЃС‚Рё?
 
-Мы будем использовать Hibernate, по умолчанию он делает глобальный sequence на все таблицы. В этом подходе есть <a href="http://stackoverflow.com/questions/1536479/asking-for-opinions-one-sequence-for-all-tables">как плюсы, так и минусы</a>, из плюсов - удобно делать ссылки в коде и в таблицах на при наследовании и мапы в коде. В дополнение: <a href="http://stackoverflow.com/questions/6633384/can-i-configure-hibernate-to-create-separate-sequence-for-each-table-by-default">Configure Hibernate to create separate sequence for each table by default</a>.
+РњС‹ Р±СѓРґРµРј РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Hibernate, РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РѕРЅ РґРµР»Р°РµС‚ РіР»РѕР±Р°Р»СЊРЅС‹Р№ sequence РЅР° РІСЃРµ С‚Р°Р±Р»РёС†С‹. Р’ СЌС‚РѕРј РїРѕРґС…РѕРґРµ РµСЃС‚СЊ <a href="http://stackoverflow.com/questions/1536479/asking-for-opinions-one-sequence-for-all-tables">РєР°Рє РїР»СЋСЃС‹, С‚Р°Рє Рё РјРёРЅСѓСЃС‹</a>, РёР· РїР»СЋСЃРѕРІ - СѓРґРѕР±РЅРѕ РґРµР»Р°С‚СЊ СЃСЃС‹Р»РєРё РІ РєРѕРґРµ Рё РІ С‚Р°Р±Р»РёС†Р°С… РЅР° РїСЂРё РЅР°СЃР»РµРґРѕРІР°РЅРёРё Рё РјР°РїС‹ РІ РєРѕРґРµ. Р’ РґРѕРїРѕР»РЅРµРЅРёРµ: <a href="http://stackoverflow.com/questions/6633384/can-i-configure-hibernate-to-create-separate-sequence-for-each-table-by-default">Configure Hibernate to create separate sequence for each table by default</a>.
 
-## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Домашнее задание HW03
-- Понять, почему перестали работать `SpringMain/InMemoryAdminRestControllerTest/ InMemoryAdminRestControllerSpringTest`
-- Дополнить скрипты создания и инициализации базы таблицой MEALS. Запустить скрипты на вашу базу (через Run). Порядок таблиц при DROP и DELETE важен, если они связаны fk. Проверьте, что ваши скрипты работают
-- Реализовать через Spring JDBC Template `JdbcUserMealRepositoryImpl`
-  - сделать каждый метод за один SQL запрос
-  - `userId` в класс `UserMeal` вставлять НЕ надо (для UI и REST это лишние данные, userId это id залогиненного пользователя)
-  - `JbdcTemplate` работает через сеттеры. Нужно их добавить в `UserMeal`
-  - Cписок еды должен быть отсортирован (тогда мы его сможем сравнивать с тестовыми данными). Кроме того это требуется для UI и API: последняя еда наверху.
-- Проверить работу MealServelt, запустив приложение
+## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Р”РѕРјР°С€РЅРµРµ Р·Р°РґР°РЅРёРµ HW03
+- РџРѕРЅСЏС‚СЊ, РїРѕС‡РµРјСѓ РїРµСЂРµСЃС‚Р°Р»Рё СЂР°Р±РѕС‚Р°С‚СЊ `SpringMain/InMemoryAdminRestControllerTest/ InMemoryAdminRestControllerSpringTest`
+- Р”РѕРїРѕР»РЅРёС‚СЊ СЃРєСЂРёРїС‚С‹ СЃРѕР·РґР°РЅРёСЏ Рё РёРЅРёС†РёР°Р»РёР·Р°С†РёРё Р±Р°Р·С‹ С‚Р°Р±Р»РёС†РѕР№ MEALS. Р—Р°РїСѓСЃС‚РёС‚СЊ СЃРєСЂРёРїС‚С‹ РЅР° РІР°С€Сѓ Р±Р°Р·Сѓ (С‡РµСЂРµР· Run). РџРѕСЂСЏРґРѕРє С‚Р°Р±Р»РёС† РїСЂРё DROP Рё DELETE РІР°Р¶РµРЅ, РµСЃР»Рё РѕРЅРё СЃРІСЏР·Р°РЅС‹ fk. РџСЂРѕРІРµСЂСЊС‚Рµ, С‡С‚Рѕ РІР°С€Рё СЃРєСЂРёРїС‚С‹ СЂР°Р±РѕС‚Р°СЋС‚
+- Р РµР°Р»РёР·РѕРІР°С‚СЊ С‡РµСЂРµР· Spring JDBC Template `JdbcUserMealRepositoryImpl`
+  - СЃРґРµР»Р°С‚СЊ РєР°Р¶РґС‹Р№ РјРµС‚РѕРґ Р·Р° РѕРґРёРЅ SQL Р·Р°РїСЂРѕСЃ
+  - `userId` РІ РєР»Р°СЃСЃ `UserMeal` РІСЃС‚Р°РІР»СЏС‚СЊ РќР• РЅР°РґРѕ (РґР»СЏ UI Рё REST СЌС‚Рѕ Р»РёС€РЅРёРµ РґР°РЅРЅС‹Рµ, userId СЌС‚Рѕ id Р·Р°Р»РѕРіРёРЅРµРЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ)
+  - `JbdcTemplate` СЂР°Р±РѕС‚Р°РµС‚ С‡РµСЂРµР· СЃРµС‚С‚РµСЂС‹. РќСѓР¶РЅРѕ РёС… РґРѕР±Р°РІРёС‚СЊ РІ `UserMeal`
+  - CРїРёСЃРѕРє РµРґС‹ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅ (С‚РѕРіРґР° РјС‹ РµРіРѕ СЃРјРѕР¶РµРј СЃСЂР°РІРЅРёРІР°С‚СЊ СЃ С‚РµСЃС‚РѕРІС‹РјРё РґР°РЅРЅС‹РјРё). РљСЂРѕРјРµ С‚РѕРіРѕ СЌС‚Рѕ С‚СЂРµР±СѓРµС‚СЃСЏ РґР»СЏ UI Рё API: РїРѕСЃР»РµРґРЅСЏСЏ РµРґР° РЅР°РІРµСЂС…Сѓ.
+- РџСЂРѕРІРµСЂРёС‚СЊ СЂР°Р±РѕС‚Сѓ MealServelt, Р·Р°РїСѓСЃС‚РёРІ РїСЂРёР»РѕР¶РµРЅРёРµ
 
 #### Optional
 
-- Сделать тестовые данные `MealTestData`, АНОЛОГИЧНЫЕ пропопулированным в `populateDB.sql`. Тестовый класс-обертка к `UserMeal` не требуется, сравниваем данные через готовый MATCHER (toString)
-- Сделать `UserMealServiceTest` из `UserMealService` (Ctrl+Shift+T и выбрать JUnit4) и реализовать тесты.
-- Сделать тесты на чужих юзеров (delete, get, update) с тем чтобы получить `NotFoundException` и тесты на `update` чужой еды.
-- Предложить решение, как почнинить `SpringMain/ InMemory*Test`. `InMemory*Test` предполагает использовать нашу реализацию репозитория в памяти
-- Сделайте индекс к таблице `Meals`.
+- РЎРґРµР»Р°С‚СЊ С‚РµСЃС‚РѕРІС‹Рµ РґР°РЅРЅС‹Рµ `MealTestData`, РђРќРћР›РћР“РР§РќР«Р• РїСЂРѕРїРѕРїСѓР»РёСЂРѕРІР°РЅРЅС‹Рј РІ `populateDB.sql`. РўРµСЃС‚РѕРІС‹Р№ РєР»Р°СЃСЃ-РѕР±РµСЂС‚РєР° Рє `UserMeal` РЅРµ С‚СЂРµР±СѓРµС‚СЃСЏ, СЃСЂР°РІРЅРёРІР°РµРј РґР°РЅРЅС‹Рµ С‡РµСЂРµР· РіРѕС‚РѕРІС‹Р№ MATCHER (toString)
+- РЎРґРµР»Р°С‚СЊ `UserMealServiceTest` РёР· `UserMealService` (Ctrl+Shift+T Рё РІС‹Р±СЂР°С‚СЊ JUnit4) Рё СЂРµР°Р»РёР·РѕРІР°С‚СЊ С‚РµСЃС‚С‹.
+- РЎРґРµР»Р°С‚СЊ С‚РµСЃС‚С‹ РЅР° С‡СѓР¶РёС… СЋР·РµСЂРѕРІ (delete, get, update) СЃ С‚РµРј С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ `NotFoundException` Рё С‚РµСЃС‚С‹ РЅР° `update` С‡СѓР¶РѕР№ РµРґС‹.
+- РџСЂРµРґР»РѕР¶РёС‚СЊ СЂРµС€РµРЅРёРµ, РєР°Рє РїРѕС‡РЅРёРЅРёС‚СЊ `SpringMain/ InMemory*Test`. `InMemory*Test` РїСЂРµРґРїРѕР»Р°РіР°РµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅР°С€Сѓ СЂРµР°Р»РёР·Р°С†РёСЋ СЂРµРїРѕР·РёС‚РѕСЂРёСЏ РІ РїР°РјСЏС‚Рё
+- РЎРґРµР»Р°Р№С‚Рµ РёРЅРґРµРєСЃ Рє С‚Р°Р±Р»РёС†Рµ `Meals`.
 - <a href="http://stackoverflow.com/questions/970562/postgres-and-indexes-on-foreign-keys-and-primary-keys">Postgres and Indexes on Foreign Keys and Primary Keys</a>
 - <a href="http://postgresguide.com/performance/indexes.html">Postgres Guide: Indexes</a>
