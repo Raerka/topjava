@@ -43,12 +43,7 @@ public class MealServlet extends HttpServlet {
 
         request.setAttribute("meal", filteredMealsWithExceeded);
 
-//        response.sendRedirect("mealList.jsp");
-
         getServletContext().getRequestDispatcher("/mealList.jsp").forward(request, response);
+//        response.sendRedirect("mealList.jsp");
     }
-
-
-
-
 }
