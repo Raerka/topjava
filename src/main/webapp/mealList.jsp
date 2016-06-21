@@ -27,7 +27,7 @@
 <h2>Meal List</h2>
 
 <c:if test="${!empty meal}">
-    <table>
+    <table border="1" cellpadding="8" cellspacing="0">
         <hr>
         <tr>
             <th width="150">Дата</th>
@@ -38,7 +38,7 @@
 
         <c:forEach items="${meal}" var="m">
             <c:if test="${m.exceed}">
-                <table class="true">
+                <table class="true" border="1" cellpadding="8" cellspacing="0">
                     <tr>
                         <td width="150">${m.dateTime}</td>
                         <td width="100">${m.description}</td>
@@ -49,7 +49,7 @@
             </c:if>
 
             <c:if test="${!m.exceed}">
-                <table class="false">
+                <table class="false" border="1" cellpadding="8" cellspacing="0">
                     <tr>
                         <td width="150">${m.dateTime}</td>
                         <td width="100">${m.description}</td>
