@@ -1,169 +1,162 @@
 # Онлайн проекта <a href="https://github.com/JavaWebinar/topjava07">Topjava</a>
 
-## Коррекция mealEdit
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFS21oTW5FTkxzblE">0-correction.patch</a>**
-> в JSP используется параметр запроса `param.action`, он не кладется а аттрибуты.
+## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Разбор домашнего задания HW3
+> SpringMain/ InMemory*Test починим в видео 3, `5-create-mock-test-ctx.patch`
 
-## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Разбор домашнего задания HW2
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 1. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFdVhaMklZQVNkUGc">JdbcUserMealRepositoryImpl + UserMealServiceTest</a>
+- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFWndDSWN4c2dsNkE">1-HW3.patch</a>**
+- <a href="http://www.techonthenet.com/postgresql/between.php">POSTGRESQL: BETWEEN CONDITION</a>
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 1. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFdDhnNHFMU2dKQzQ">HW2</a>
-> Изменения в проекте:
-  - В репозиториях по другому инстанциировал компараторы
-  - Пернес обработку пустых дат  в `UserMealRestController.getBetween()`
-  - Зарефакторил `<T extends Comparable<? super T>> TimeUtil.isBetween(T value, T start, T end)`. Дженерики означают, что мы принимаем экземпляры класса, который имплементит компаратор, который умеет сравнивать T или суперклассы от T
-  
-  - **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFS195Wm9aNi1uWjQ">1-HW2-repository.patch</a>**
+> Новый Postgres драйвер <a href="https://jdbc.postgresql.org/documentation/head/8-date-time.html">поддерживает Java 8 Date and Time</a>. Преобразования c Timestamp уже не нужны.
 
-**Внимание: при удалении класса он остается скомпилированный у вас в target (и classpath). В этом случае (или вообще если непонятно почему проект глючит) сделаейт в maven clean.**
+- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFT3lpRjRZaWpyUUU">2-HW3-optional.patch</a>**
 
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFQXY5R1BURU04MW8">2-HW2-meal-layers.patch</a>**
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFT1gtZVZWbW1wSU0">3-HW2-optional-MealServlet.patch</a>**
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFN0VPc1Zzbi0zemc">4-HW2-optional-filter.patch</a>**
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFWFdPRmhmemh6dlk">5-HW2-optional-select-user.patch</a>**
+> В JUnit тестах используется кодировка по умолчанию и тесты, если их запускать через maven, не проходят. Решается кастомизацией плагина <a href="https://maven.apache.org/surefire/maven-surefire-plugin/">maven-surefire-plugin</a>
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 2. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFMGRVM0QyblJtNGc">Вопросы по API и слоям приложения</a>
-- <a href="http://stackoverflow.com/questions/21554977/should-services-always-return-dtos-or-can-they-also-return-domain-models">Should services always return DTOs, or can they also return domain models?</a>
-- <a href="http://stackoverflow.com/questions/31644131/spring-dto-dao-resource-entity-mapping-goes-in-which-application-layer-cont/35798539#35798539">Mapping Entity->DTO goes in which application layer: Controller or Service?</a>
+> В meals добавил составной индекс `INDEX meals_unique_user_datetime_idx ON meals(user_id, date_time)`:
+ - все запросы в таблицу meals у нас идут с `user_id`
+ - по полю `date_time` также есть запросы + мы по нему сортируем список результатов
+ те они- хорошие кандидаты для индексирования. <a href="http://stackoverflow.com/questions/970562/postgres-and-indexes-on-foreign-keys-and-primary-keys">На id как на primary key индекс создается автоматически</a>.
 
-## Занятие 3:
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 3. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFOU8wWlpPVE05STA">Коротко о жизненном цикле Spring контекста.</a>
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFakQ2R3A1amR4RzQ">6-bean-life-cycle.patch</a>**
--  <a href="http://habrahabr.ru/post/222579/">Spring изнутри. Этапы инициализации контекста.</a>
--  Ресурсы:
-   -  <a href="http://vk.com/javawebinar?z=video-58538268_169373158%2Fvideos-58538268">Евгений Борисов. Spring, часть 1</a>
-   -  <a href="http://vk.com/javawebinar?z=video-58538268_169373162%2Fvideos-58538268">Евгений Борисов. Spring, часть 2</a>
-   -  <a href="http://www.slideshare.net/taemonz/spring-framework-core-23721778">Презентация Spring framework core</a>
+## Занятие 4:
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 2. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFU005ZzBNZmZnTVU">Методы улучшения качества кода</a>
+- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFQ1RNQ0ZWdWNkSzA">3-improve-code.patch</a>**
+- <a href="https://ru.wikipedia.org/wiki/Контрактное_программирование">Контрактное программирование</a>, <a href="http://neerc.ifmo.ru/wiki/index.php?title=Программирование_по_контракту">Программирование по контракту</a>
+- <a href="http://www.sw-engineering-candies.com/blog-1/comparison-of-ways-to-check-preconditions-in-java">Comparison Preconditions in Java</a>
+- <a href="https://code.google.com/archive/p/findbugs/wikis/IntellijFindBugsPlugins.wiki">QAPlug vs FindBugs</a>
+- <a href="http://qaplug.com/about/tutorials/">QAPlug tutorials</a>
+- <a href="https://www.codacy.com">Codacy Home</a>
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png)  4. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFODlkU1B0QnNnSGs">Тестирование через JUnit.</a>
-> **ВНИМАНИЕ: перед накаткой патча создайте каталог test (из корня проекта путь `\src\test`), иначе часть файлов попадет в `src\main`.**
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 3. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFU0Z2R190eDllYmM">Spring: инициализация и популирование DB</a>
+- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFSXZCcDdEemdXU00">4-init-and-populate-db.patch</a>**
+> `@Sql` в тестах заменяет `@Before public void setUp()`, те выполняется перед каждым тестом
 
--  **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFdk5sUGF2aDJ1aVk">7-add-junit.patch</a>**
--  Перенос mock реализации в test.
--  <a href="http://junit.org/">JUnit 4</a>
--  <a href="http://habrahabr.ru/post/120101/">Тестирование в Java. JUnit</a>
+-  <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/jdbc.html#jdbc-initializing-datasource-xml">Инициализация базы при старте приложения</a>
+-  <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#integration-testing-annotations-spring">Spring Testing Annotations</a>
+-  <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#resources">Абстракция Resource</a>
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 5. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFai1veG9qaFZlZ2s">Spring Test</a>
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFTmZOQ0ZMdDFIdXc">8-add-spring-test.patch</a>**
--  Интеграция Spring и JUnit.
--  <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#testing">Spring Testing</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 4. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFNTNWV04weDBGSmc">Починка SpringMain/ InMemory*Test: подмена контекста при тестировании</a>
+- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFejJTQUdoMXhyUFE">5-create-mock-test-ctx.patch</a>**
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 6. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFVlNYczhnSU9JdXc">Базы данных. Обзор NoSQL и Java persistence solution без ORM.</a>
--  <a href="https://ru.wikipedia.org/wiki/PostgreSQL">PostgreSQL</a>.
--  <a href="http://java-course.ru/begin/postgresql/">Установка PostgreSQL</a>.
--  <a href="http://alexander.holbreich.org/2013/03/nosql-or-rdbms/">NoSQL or RDBMS.</a><a href="http://habrahabr.ru/post/77909/">Обзор NoSQL систем</a>. <a href="http://blog.nahurst.com/visual-guide-to-nosql-systems">CAP</a>
--  <a href="http://ru.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a>
--  Обзор Java persistence solution без ORM: <a href="http://commons.apache.org/proper/commons-dbutils/">commons-dbutils</a>,
-            <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/jdbc.html">Spring JdbcTemplate</a>,
-            <a href="http://en.wikipedia.org/wiki/MyBatis">MyBatis</a>, <a href="http://www.jdbi.org/">JDBI</a>, <a href="http://www.jooq.org/">jOOQ</a>
-- Основы:
-  - <a href="https://ru.wikipedia.org/wiki/Реляционная_СУБД">Реляционная СУБД</a>
-  - <a href="http://habrahabr.ru/post/103021/">Реляционные базы</a>
-  - <a href="https://www.youtube.com/playlist?list=PLIU76b8Cjem5qdMQLXiIwGLTLyUHkTqi2">Уроки по JDBC</a>
-  - <a href="http://postgresguide.com/">Postgres Guide</a>
-  - <a href="http://www.postgresqltutorial.com">PostgreSQL Tutorial</a>
-  - <a href="http://campus.codeschool.com/courses/try-sql">Try SQL</a>
-  - <a href="http://java-course.ru/begin/database01/">Базы данных на Java</a>
-  - <a href="http://java-course.ru/begin/database02/">Возможности JDBC — второй этап</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 5. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFVWZYcHoyUF9qX2M">ORM. Hibernate. JPA.</a>
+> ВНИМАНИЕ: патч меняет postgres.properties, в котором у вас свои креденшелы к базе.
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 7. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFQWtHYU1qTDlMWVE">Настройка Database в IDEA.</a>
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFRWlOeWVDMFhUeTQ">9-add-postgresql.patch</a>**
--  <a href="http://habrahabr.ru/company/JetBrains/blog/204064/">Настройка Database в IDEA</a> и запуск SQL.
+> Тесты и приложение ломаются. `UserMealServiceTest` починится после выполнения HW04 (`JpaUserMealRepositoryImpl`)
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 8. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFMGNWUXhaVzdlU0k">Скрипты инициализации базы. Spring Jdbc Template.</a>
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFdTRzUkx3b0hhd2M">10-populate-and-init-db.patch</a>**
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFVjdOdXJJY2VhQ00">11-impl-JdbcUserRepository.patch</a>**
--  Подключение <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/jdbc.html">Spring Jdbc</a>.
--  Конфигурирование DataSource. <a href="http://www.mkyong.com/spring/spring-propertyplaceholderconfigurer-example/">Property Placeholder</a>
+-  **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFa0F4SWszQmYxMzQ">6-add-jpa.patch</a>**
 
->  **Проверьте, что в <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFYThYOFNHbnNzd0E">контекст Spring проекта включены оба файла конфигурации</a>**.
+>  Upgrade Hibernate to 5.0.4 needed to add `javax.transaction.jta`, see <a href="https://hibernate.atlassian.net/browse/HHH-10307">5.0.4 requires javax.transaction.SystemException</a>
 
--  Имплементация UserRepository через Spring Jdbc Template.
+>  Upgrade Hibernate Validator needed to add `javax.el-api`, see <a href="http://stackoverflow.com/questions/24386771/javax-validation-validationexception-hv000183-unable-to-load-javax-el-express">javax.validation.ValidationException</a>
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 9. <a href="https://drive.google.com/open?id=0B4dIHS3wRAhhQUJMMFU0VnRrUUE">Подготовка тестовых данных и тестирование UserService.</a>
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFajFEeGdNZUVoeVk">12-test-UserService.patch</a>**
--  Подготовка тестовых данных в UserServiceTest. Добавление TestUser и ModelMatcher
--  Тестирование UserService.
+-  <a href="http://ru.wikipedia.org/wiki/ORM">ORM</a>.
+-  <a href="http://habrahabr.ru/post/265061/">JPA и Hibernate в вопросах и ответах</a>
+-  <a href="http://www.quizful.net/post/Hibernate-3-introduction-and-writing-hello-world-application">Hibernate: введение и написания Hello world приложения</a>
+-  <a href="http://en.wikibooks.org/wiki/Java_Persistence/Mapping">Mapping</a>. Описания модели Hibernate (hbm.xml/annotation)
+-  <a href="https://ru.wikipedia.org/wiki/Hibernate_(библиотека)">Hibernate</a>. Другие ORM: <a href="http://en.wikipedia.org/wiki/TopLink">TopLink</a>, <a href="http://en.wikipedia.org/wiki/EclipseLink">ElipseLink</a>, <a href="http://en.wikipedia.org/wiki/Ebean">EBean</a> (<a href="http://www.playframework.com/documentation/2.2.x/JavaEbean">used in Playframework</a>).
+-  <a href="http://ru.wikipedia.org/wiki/Java_Persistence_API">JPA (wiki)</a>. <a href="https://en.wikipedia.org/wiki/Java_Persistence_API">JPA (english wiki)</a>. <a href="http://www.jpab.org/All/All/All.html">JPA Performance Benchmark</a>
+-  Подключение к проекту Spring ORM и Hibernate
+-  <a href="http://en.wikibooks.org/wiki/Java_Persistence/Inheritance">Отображения наследования объектов на таблицы</a>
+-  <a href="http://en.wikibooks.org/wiki/Java_Persistence/Identity_and_Sequencing">Стратегии генерации PK</a>
+-  Добавление <a href="http://validator.hibernate.org">hibernate-validator</a>. <a href="http://stackoverflow.com/questions/14730329/jpa-2-0-exception-to-use-javax-validation-package-in-jpa-2-0">JSR-303 -> JSR-349</a>
+-  <a href="http://devcolibri.com/2046">Описание связей в модели. Ленивая загрузка объекта.</a>
+-  Конфигурирование JPA. Сканировние Entities. <a href="http://docs.jboss.org/hibernate/entitymanager/3.6/reference/en/html/architecture.html#d0e61">JPA definitions</a>
+-  <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html">Spring expressions: выражения в конфигурации</a>
+-  Создание JPA Facet. Назначение DataSource.
+-  Имплементация JpaUserRepository через EntityManagerFactory/ SessionFactory
+-  Использование TypedQuery и @NamedQuery. Назначение параметров по индексу и имени.
+-  <a href="http://docs.jboss.org/hibernate/orm/4.2/devguide/en-US/html/ch11.html">HQL</a>/ <a href="http://ru.wikipedia.org/wiki/Java_Persistence_Query_Language">JPQL</a>.
+-  <a href="http://www.objectdb.com/java/jpa/query/criteria">JPA Criteria API</a>. <a href="http://www.querydsl.com/">Unified Queries for Java</a>
+-  <a href="https://bitbucket.org/montanajava/jpaattributeconverters">Using the Java 8 Date Time Classes with JPA</a>
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 10. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFVmZaSm9UMktXUnc">Логирование тестов.</a>
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFRXFuV0g5emlzYnM">13-test-logging.patch</a>**
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFUnNIZHRsdXVlSUE">14-fix-servlet.patch</a>**
- 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 11. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFNDlOQVpOWF82OTA">Ответы на Ваши вопросы</a>
--  Что такое REST?
--  Зачем нужна сортировка еды?
--  Можно ли обойтись без `MapSqlParameterSource`?
--  Как происходит работа с DB в тестах?
--  Как реализовывать RowMapper?
--  Мои комментарии: решения проблем разработчиком.
--  Нужен ли разработчику JavaScript?
+- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFQmlRRnQ3ZXhEU28">7-add-named-query-and-transaction.patch</a>**
+
+-  <a href="http://ru.wikipedia.org/wiki/Транзакция_(информатика)">Транзакция. ACID. Уровни изоляции транзакций.</a>
+-  Подключаем транзакции. <a href="http://www.tutorialspoint.com/spring/spring_transaction_management.htm">Spring Transaction Management</a>
+-  <a href="https://jira.spring.io/browse/DATAJPA-601">readOnly и Propagation.SUPPORTS</a>
+-  <a href="http://habrahabr.ru/post/232381/">@Transactional в тестах. Настройка EntityManagerFactory</a>
+-  Справочник:
+   - <a href="http://www.youtube.com/watch?v=YzOTZTt-PR0">Николай Алименков — Босиком по граблям Hibernate</a>
+   - <a href="http://www.byteslounge.com/tutorials/spring-transaction-propagation-tutorial">Spring transaction propagation tutorial</a>
+   - <a href="https://dzone.com/refcardz/getting-started-with-jpa">Getting Started with JPA</a>
+   - <a href="http://stackoverflow.com/questions/8994864/how-would-i-specify-a-hibernate-pattern-annotation-using-a-regular-expression">Validate by RegExp</a>
+   - <a href="http://en.wikibooks.org/wiki/Java_Persistence">Java Persistence</a>
+   - <a href="http://hibernate.org/">Hibernate</a>
+   - <a href="http://docs.spring.io/spring-framework/docs/4.0.x/spring-framework-reference/html/transaction.html">Spring Framework transaction management</a>
+   - <a href="http://www.objectdb.com/java/jpa/persistence/managed#Entity_Object_Life_Cycle">Working with JPA Entity Objects</a>
+   - <a href="http://www.ibm.com/developerworks/ru/library/j-ts1/">Стратегии работы с транзакциями: Распространенные ошибки</a>
+   - <a href="http://habrahabr.ru/post/208400/">Принципы работы СУБД. MVCC</a>
+   - <a href="https://ru.wikipedia.org/wiki/MVCC">MVCC</a>
+
+
+###  ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 6. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFSTJEQ1Rvd3Jvc2c">Добавляем поддержку HSQLDB</a>
+
+- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFTWpoMWJuZU1ldWc">8-add-hsqldb.patch</a>**
+
+>  ВНИМАНИЕ: патч меняет postgres.properties
+
+> IDEA может `${jdbc.initLocation}` подчеркивать красным - тупит...
 
 ## ![question](https://cloud.githubusercontent.com/assets/13649199/13672858/9cd58692-e6e7-11e5-905d-c295d2a456f1.png) Ваши вопросы
-> Какая разница между @BeforeClass and @Before? 
 
-`@BeforeClass` выполняется один раз после загрузки класса (поэтому метод может быть только статический), `@Before` перед каждым тестом. Не ленитесь сходить в исходники по Ctrl+Enter и почитать javadoc.
+>  Есть несколько аналогичных "встроенных" баз данных. H2, HSQLDB, Derby, SQLite. Почему был выбран HSQLDB?
 
-Дополнение: для чистоты экземпляр тестового класса пересоздается перед каждым тестом: http://stackoverflow.com/questions/6094081/junit-using-constructor-instead-of-before
+Просто с ней приходилось работать. HSQLDB и H2 наиболее популярны, в новом курсе по spring-boot планирую использовать H2.
 
-> Тесты в классе в каком-то определенном порядке выполняются ("сверху вниз" например)?
+> Чистого JPA не существует, т.е. это всего лишь интерфейс, спецификация? Говорим JPA, подразумеваем какой-то ORM фрэймворк? А что тогда используют чистый jdbc, Spring-jdbc, MyBatis? MyBatis не реализует JPA?
 
-Порядок по умолчанию неопределен, каждый тест должен быть автономен и не зависеть от других. См. также http://stackoverflow.com/questions/3693626/how-to-run-test-methods-in-specific-order-in-junit4 
+JPA- это JavaEE спецификация, API. Ее реализации- Hibernate, OpenJPA, EclipceLink. Spring-Jdbc, MyBatis, db-utils не реализуют JPA, это обертки к JDBC. Все ORM также реализованы поверх JDBC.
 
-> Объязательно ли разворачивать postgreSQL?
+> В зависимостях maven `hibernate-entitymanager` тянет за собой `jboss-logging`. Как будет происходить логгирование?
 
-Желательно: хорошая и надежная DB:) Если совсем не хочется - можно работать со своей любимой RDBMS (поправить `initDB.sql`) или работать c heroku (креденшелы к нему есть в `postgres.properties`). На следующем уроке добавим HSQLDB, она не тербует установки.
+<a href="http://stackoverflow.com/questions/11639997/how-do-you-configure-logging-in-hibernate-4-to-use-slf4j">How do you configure logging in Hibernate 4 to use SLF4J</a>: в нашем проекте автоматически подхватывается `logback-classic`.
 
-> Зачем начали индексацию с 100000?
+--------------------
 
-Тут уже нет "как принято". Так удобно вставлять в базу (если будет потребность)  записи не мешая счетчику.
+## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Домашнее задание HW4
 
-> Разве не должно быть у каждой роли примари кей id и форин кей user_id ?
-
-Отношение user <-> roles многие ко многим, делается это через таблицу-связку USER_ROLES. Но отдельной таблицы ROLES у нас нет,  мы храним значение роли прямо в таблице-связке USER_ROLES. "Примари кей" тут не нужны. Есть еще варианты использовать тип enum у Postgres или хранить там `INTEGER` как `Roles.ordinal()`. При этом нельзя будет менять порядок в enum Role и добавлять новые роли можно будет только в конец: http://stackoverflow.com/questions/6789342/jpa-enum-ordinal-vs-string
-
-> Из 5-го видео - "Логика в базе - большое зло". Можно чуть поподробней об этом?
-
-- Есть успешные проекты с логикой в базе. Те все относительно.
-- Логика в базе - это процедуры и триггеры. Нет никакого ООП, переиспользовать код достаточно сложно, никагого рефакторинга, поиска по коду и других плюшек IDE. Нельзя делать всякие вещи типа кэширования, хранения в сесии - это все для логики на стороне java. Например json можно напрямую отдать в процедуру и там парсить и вставлять в таблицы или наоборот - собирать из таблиц и возвращать.
-А затем потребуется некоторая логика на стороне приложения и все равно придется этот json дополнительно разпарсивать в java.
-Я на таком проекте делал специальную миграцию, чтобы процедуры мигрировать не как sql скрипты, а каждую процедуру хранить как класс с историей изменений. Если логика: триггеры и простые процедуры записи-чтения, которые не требуют переиспользования кода или
-проект небольшой это допустимо, иначе проект становится очень трудно поддерживать.
-
-> У JUnit есть ассерты и у спринга тоже. Можно ли обойтись без JUnit?
-
-Предусловия и JUnit-тесты совершенно разные вещи. Один другого не заменит.
-
-> Я так понял VARCHAR быстрее, чем TEXT, когда мы работаем с небольшими записями. Наши записи будут небольшими (255). Почему вы приняли решение перейти на TEXT?
-
-В отличие от MySql в Postgres  VARCHAR и TEXT - тоже самое: http://stackoverflow.com/questions/4848964/postgresql-difference-between-text-and-varchar-character-varying
-
-> Зачем при создании таблицы мы создаем `CREATE UNIQUE INDEX` и `CREATE INDEX`. При каких запросах он будет использоваться?
-
-UNIQUE индекс нужен для обеcпечения уникальности, DB не даст сделать одинаковый индекс. Индексы используется для скорости выполнения запросов. Обычно они задействуются, когда в запросе есть условия, на которые сделан индекс. Узнать по конкретному запросу можно  запросив план запроса: см. <a href="https://habrahabr.ru/post/203320">Оптимизация запросов. Основы EXPLAIN в PostgreSQL</a>
-
-> А это нормально, что у нас в базе у meals есть userId, а в классе - нет?
-
-Что значит - "норамльно"?  приложение работает. Ненормально, когда в приложении есть "лишний" код, который не используется. Для ORM он нам понадобится- мы ссылку на User добавим.
-
-> Почему мы использует 1 БД sequence на разные сущности?
-
-Мы будем использовать Hibernate, по умолчанию он делает глобальный sequence на все таблицы. В этом подходе есть <a href="http://stackoverflow.com/questions/1536479/asking-for-opinions-one-sequence-for-all-tables">как плюсы, так и минусы</a>, из плюсов - удобно делать ссылки в коде и в таблицах на при наследовании и мапы в коде. В дополнение: <a href="http://stackoverflow.com/questions/6633384/can-i-configure-hibernate-to-create-separate-sequence-for-each-table-by-default">Configure Hibernate to create separate sequence for each table by default</a>.
-
-## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Домашнее задание HW03
-- Понять, почему перестали работать `SpringMain/InMemoryAdminRestControllerTest/ InMemoryAdminRestControllerSpringTest`
-- Дополнить скрипты создания и инициализации базы таблицой MEALS. Запустить скрипты на вашу базу (через Run). Порядок таблиц при DROP и DELETE важен, если они связаны fk. Проверьте, что ваши скрипты работают
-- Реализовать через Spring JDBC Template `JdbcUserMealRepositoryImpl`
-  - сделать каждый метод за один SQL запрос
-  - `userId` в класс `UserMeal` вставлять НЕ надо (для UI и REST это лишние данные, userId это id залогиненного пользователя)
-  - `JbdcTemplate` работает через сеттеры. Нужно их добавить в `UserMeal`
-  - Cписок еды должен быть отсортирован (тогда мы его сможем сравнивать с тестовыми данными). Кроме того это требуется для UI и API: последняя еда наверху.
-- Проверить работу MealServelt, запустив приложение
+- Сделать `UserMeal` как Hibernate entity
+- Добавить для JPA поддержку `LocalDateTime`
+- Имплементировать и протестировать `JpaUserMealRepositoryImpl`
+  -  IDEA не понимает в @NamedQuery `..  m.dateTime BETWEEN ..`. На функциональность это не влияет.
+  -  <a href="http://stackoverflow.com/questions/23718383/jpa-support-for-java-8-new-date-and-time-api">JPA support for Java 8 new date and time API</a>
+  -  <a href="http://stackoverflow.com/questions/31965179/whats-new-in-hibernate-5">What's new in Hibernate 5?</a>
 
 #### Optional
 
-- Сделать тестовые данные `MealTestData`, АНОЛОГИЧНЫЕ пропопулированным в `populateDB.sql`. Тестовый класс-обертка к `UserMeal` не требуется, сравниваем данные через готовый MATCHER (toString)
-- Сделать `UserMealServiceTest` из `UserMealService` (Ctrl+Shift+T и выбрать JUnit4) и реализовать тесты.
-- Сделать тесты на чужих юзеров (delete, get, update) с тем чтобы получить `NotFoundException` и тесты на `update` чужой еды.
-- Предложить решение, как почнинить `SpringMain/ InMemory*Test`. `InMemory*Test` предполагает использовать нашу реализацию репозитория в памяти
-- Сделайте индекс к таблице `Meals`.
-- <a href="http://stackoverflow.com/questions/970562/postgres-and-indexes-on-foreign-keys-and-primary-keys">Postgres and Indexes on Foreign Keys and Primary Keys</a>
-- <a href="http://postgresguide.com/performance/indexes.html">Postgres Guide: Indexes</a>
+- Добавить в тесты `UserMealServiceTest` функциональность `@Rule`:
+  - проверку Exception
+  - вывод в лог времени выполнения каждого теста
+-  <a href="https://github.com/junit-team/junit/wiki/Rules">JUnit @Rules</a>
+
+---------------------
+### ![error](https://cloud.githubusercontent.com/assets/13649199/13672935/ef09ec1e-e6e7-11e5-9f79-d1641c05cbe6.png) Подсказки по HW4
+
+-  Тк. JPQL работает с объектами мы не можем использовать userId для сохранения. Можно сделать например так:
+
+        User ref = em.getReference(User.class, userId);
+        meal.setUser(ref);
+
+   При этом от User нам нужет только id, т.е. реального запроса в базу за юзером не будет- проверьте по логам Hibernate.
+
+- В JPQL запросах можно писать: `m.user.id=:userId`
+
+- При реализации `JpaUserMealRepositoryImpl` предпочтительно не использовать try-catch в логике реализации. Но если очень хочется, то ловить только специфичекские эксепшены (пр. `NoResultException`), чтобы, например, при отсутствии коннекта к базе приложение отвечало адекватно.
+
+- Мы будем смотреть генерацию db скриптов из модели, для корректоной генерации нужно в `UserMeal` добавить `uniqueConstraints`
+
+## Выпускной проект
+- Новая информация плохо оседает в голове, когда дается в виде патчей, поэтому, чтобы она стала "твоей" нужно еще раз проделать это самостоятельно.
+- Домашнее задание на этом уроке небольшое, а полученных знаний уже достаточно, чтобы после его выполнения начинать делать **[выпускной проект, сделанный на нашем стеке](graduation.md)**.
+- Общение в канале <a href="https://topjava7.slack.com/messages/graduate_project/">graduate_project</a>. Своим кодом лучше не делиться, иначе ты оказываешь медвежью услугу.
+- Ревью проекта входит в продписку с проверкой домашних заданий (ревьюится один раз).
+- Отдать на ревью нужно спустя не позднее 2х недель после окончания нашего проекта topjava.
+- По завершению ты сможешь занести этот проект в свое портфолио и резюме как собственный, без всяких оговорок.
+
+> Проект не мой: я взял реальное тестовое задание, поэтому жалоб не неясность формулировок принимать не буду- сделайте как поняли. Представьте, что это ваше тестовое задание на работу.
+"Как лучше сделать и почему не работает" подсказок с моей стороны также не будет, но вопросы по технологиям конечно спрашивать можно и нужно.
+
+### Успехов в выполнении!
+
+
+
